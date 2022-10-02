@@ -1,0 +1,14 @@
+def plot_item():
+    cursor.execute('select item_name,quantity from itemplot_table')
+    results=cursor.fetchall()
+    itemname=[]
+    quantity=[]
+    for item in results:
+        itemname.append(item[0])
+        quantity.append(item[1])
+    plt.bar(itemname,quantity)
+    ylim=(0,5)
+    plt.xlabel('item name')
+    plt.ylabel('quantity of items bought')
+    plt.title('Item Quantity Comparison')
+    plt.show()
